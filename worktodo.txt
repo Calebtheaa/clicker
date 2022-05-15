@@ -1,0 +1,8 @@
+# clicker
+python clicker game im making
+
+Current things im planning to do:
+  extra minigames
+  rebirth system
+Current things you could make for me:
+  save system
