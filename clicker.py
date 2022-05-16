@@ -1,8 +1,11 @@
-# current version: 1.1 (achievement update > shop optimization)
-# changes: moved menus to take less time to bulk buy
+# current version: 2.0 (gambling update)
+# changes: new minigame! sacrifice part of your points in hope for profit!
 import time
+import random
 # declares variables----------------------------------------------------------------------------------------------------
-# upgrade amounts and prices------------------------------------
+# misc----------------------------------------------------------
+risk = 0
+# upgrade amounts-----------------------------------------------
 unit1 = 0
 unit2 = 0
 unit3 = 0
@@ -92,8 +95,8 @@ while 0 == 0:  # action menu ---------------------------------------------------
     print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")  # separation
     print("Points per tick =", per_tick_result)
     print("Points per click =", per_click_result)
-    print("Points =", points)
-    option = input("Enter input:\nc: click\ns: shop\nq: leave\na: achievements\nanything else: does nothing\n")
+    print("Points =", round(points))
+    option = input("Enter input:\nc: click\ns: shop\nq: leave\na: achievements\ng: rng machine (100,000 points)\nanything else: does nothing\n")
     time.sleep(0.1-(at / 100))
     ticks += 1
     if option == "c":  # adds the value per click to point amount
@@ -291,3 +294,24 @@ while 0 == 0:  # action menu ---------------------------------------------------
             print("progress:", appc, "/ 8", "(+", appc * 5, "% to points per click)\n\n")
             print("q to close\n")
             option = input()
+    if option == "g" and points > 100000:  # the rng machine
+        while risk < 11:
+            print(
+                "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+            risk = int(input("enter risk to take, enter 11 to go back (up to 10: risk up, cost up, reward up, and chance down) (if you don't enter a number the game will crash!!)\n"))
+            if 11 > risk > 0:
+                chance = round(50 - risk * 4)
+                print("cost:", round(points / (11 - risk)))
+                print("reward:", round((points / (11 - risk)) * 2))
+                print("chance:", round(50 - risk * 4), "%")
+                option = input("are you sure you want to continue? enter b to go back, enter anything else to continue")
+                if option == "b":
+                    print("this line of text is here to fill space")
+                elif chance > random.randint(1, 100):
+                    points += round(points / (11 - risk))
+                    print("success! gained", round(points / (11 - risk)), "points.")
+                else:
+                    print("failure... lost", round(points / (11 - risk)), "points.")
+            else:
+                print("this line of text is here to fill space")
+    risk = 0
