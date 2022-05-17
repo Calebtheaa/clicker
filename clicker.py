@@ -119,31 +119,31 @@ while 0 == 0:  # action menu ---------------------------------------------------
                     print("cost:", round((10 * 1.3 * unit1)) + 10)
                     print("\ntype 2 (5 points per clicker):")
                     print("amount:", unit2)
-                    print("cost:", 50 * 2 * (unit2 + 1))
+                    print("cost:", 100 * (unit2 + 1))
                     print("\ntype 3 (20 points per clicker):")
                     print("amount:", unit3)
-                    print("cost:", round(1000 * 2.4 * (unit3 + 1)))
+                    print("cost:", 2400 * (unit3 + 1))
                     print("\ntype 4 (100 points per clicker):")
                     print("amount:", unit4)
-                    print("cost:", 25000 * 4 * (unit4 + 1))
+                    print("cost:", 100000 * (unit4 + 1))
                     print("\ntype 5 (300 points per clicker):")
                     print("amount:", unit5)
-                    print("cost:", round(500000 * 6.5 * (unit5 + 1)))
+                    print("cost:", 3250000 * (unit5 + 1)))
                     print("\ntype 6 (1000 points per clicker):")
                     print("amount:", unit6)
-                    print("cost:", 10000000 * 8 * (unit6 + 1))
+                    print("cost:", 80000000 * (unit6 + 1))
                     print("\ntype 7 (10000 points per clicker):")
                     print("amount:", unit7)
-                    print("cost:", 600000000 * 14 * (unit7 + 1))
+                    print("cost:", 8400000000 * (unit7 + 1))
                     print("\ntype 8 (200000 points per clicker):")
                     print("amount:", unit8)
-                    print("cost:", 100000000000 * 16 * (unit8 + 1))
+                    print("cost:", 1600000000000 * (unit8 + 1))
                     print("\ntype 9 (4000000 points per clicker):")
                     print("amount:", unit9)
-                    print("cost:", 100000000000000 * 25 * (unit9 + 1))
+                    print("cost:", 2500000000000000 * (unit9 + 1))
                     print("\ntype 10 (160000000 points per clicker):")
                     print("amount:", unit10)
-                    print("cost:", 10000000000000000000 * 32 * (unit10 + 1), "\n")
+                    print("cost:", 320000000000000000000 * (unit10 + 1), "\n")
                     if not_enough_points == 1:
                         print("not enough points!")
                     print("points:", points)
@@ -157,65 +157,65 @@ while 0 == 0:  # action menu ---------------------------------------------------
                         else:
                             not_enough_points = 1
                     if option == "t2":
-                        if points >= (50 * 2 * (unit2 + 1)):
+                        if points >= 100 * (unit2 + 1):
                             per_tick_result += 5
-                            points -= (50 * 2 * (unit2 + 1))
+                            points -= 100 * (unit2 + 1)
                             unit2 += 1
                         else:
                             not_enough_points = 1
                     if option == "t3":
-                        if points >= round(1000 * 2.4 * (unit3 + 1)):
+                        if points >= 2400 * (unit3 + 1):
                             per_tick_result += 20
-                            points -= round(1000 * 2.4 * (unit3 + 1))
+                            points -= 2400 * (unit3 + 1)
                             unit3 += 1
                         else:
                             not_enough_points = 1
                     if option == "t4":
-                        if points >= (25000 * 4 * (unit4 + 1)):
+                        if points >= 100000 * (unit4 + 1):
                             per_tick_result += 100
-                            points -= (25000 * 4 * (unit4 + 1))
+                            points -= 100000 * (unit4 + 1)
                             unit4 += 1
                         else:
                             not_enough_points = 1
                     if option == "t5":
-                        if points >= round(500000 * 6.5 * (unit5 + 1)):
+                        if points >= 3250000 * (unit5 + 1):
                             per_tick_result += 300
-                            points -= (500000 * 6.5 * (unit5 + 1))
+                            points -= 3250000 * (unit5 + 1)
                             unit5 += 1
                         else:
                             not_enough_points = 1
                     if option == "t6":
-                        if points >= (10000000 * 8 * (unit6 + 1)):
+                        if points >= 80000000 * (unit6 + 1):
                             per_tick_result += 1000
-                            points -= (10000000 * 8 * (unit6 + 1))
+                            points -= 80000000 * (unit6 + 1)
                             unit6 += 1
                         else:
                             not_enough_points = 1
                     if option == "t7":
-                        if points >= (600000000 * 14 * (unit7 + 1)):
+                        if points >= 8400000000 * (unit7 + 1):
                             per_tick_result += 10000
-                            points -= (600000000 * 14 * (unit7 + 1))
+                            points -= 8400000000 * (unit7 + 1)
                             unit7 += 1
                         else:
                             not_enough_points = 1
                     if option == "t8":
-                        if points >= (100000000000 * 16 * (unit8 + 1)):
+                        if points >= 1600000000000 * (unit8 + 1):
                             per_tick_result += 200000
-                            points -= (100000000000 * 16 * (unit8 + 1))
+                            points -= 1600000000000 * (unit8 + 1)
                             unit8 += 1
                         else:
                             not_enough_points = 1
                     if option == "t9":
-                        if points >= (100000000000000 * 25 * (unit9 + 1)):
+                        if points >= 2500000000000000 * (unit9 + 1):
                             per_tick_result += 4000000
-                            points -= (100000000000000 * 25 * (unit9 + 1))
+                            points -= 2500000000000000 * (unit9 + 1)
                             unit9 += 1
                         else:
                             not_enough_points = 1
                     if option == "t10":
-                        if points >= (10000000000000000000 * 32 * (unit10 + 1)):
+                        if points >= 320000000000000000000 * (unit10 + 1):
                             per_tick_result += 160000000
-                            points -= (10000000000000000000 * 32 * (unit10 + 1))
+                            points -= 320000000000000000000 * (unit10 + 1)
                             unit10 += 1
                         else:
                             not_enough_points = 1
@@ -226,16 +226,16 @@ while 0 == 0:  # action menu ---------------------------------------------------
                     print("\nCLICK UPGRADES")
                     print("\nlevel 1 (1 point per upgrade):")
                     print("amount:", unitc1)
-                    print("cost:", 100 * 3 * (unitc1 + 1))
+                    print("cost:", 300 * (unitc1 + 1))
                     print("\nlevel 2 (5 points per upgrade):")
                     print("amount:", unitc2)
-                    print("cost:", 500 * 4 * (unitc2 + 1))
+                    print("cost:", 2000 * (unitc2 + 1))
                     print("\nlevel 3 (20 points per upgrade):")
                     print("amount:", unitc3)
-                    print("cost:", 2500 * 5 * (unitc3 + 1))
+                    print("cost:", 12500 * (unitc3 + 1))
                     print("\nlevel 4 (100 points per upgrade):")
                     print("amount:", unitc4)
-                    print("cost:", 10000 * 7 * (unitc4 + 1))
+                    print("cost:", 70000 * (unitc4 + 1))
                     print("\nlevel 5 (DOUBLES points per upgrade):")
                     print("amount:", unitc5)
                     print("cost:", round(100000 * pow(2.2, (unitc5 + 1))), "\n")
@@ -245,37 +245,37 @@ while 0 == 0:  # action menu ---------------------------------------------------
                     option = input("enter type number after a t (t2) to buy an autoclicker.\ntype the upgrade number after a c for a click upgrade (c2).\ntype q to go back.\n")
                     not_enough_points = 0
                     if option == "c1":
-                        if points >= 100 * 3 * (unitc1 + 1):
+                        if points >= 300 * (unitc1 + 1):
                             per_click_result += 1
                             points -= 100 * 3 * (unitc1 + 1)
                             unitc1 += 1
                         else:
                             not_enough_points = 1
                     if option == "c2":
-                        if points >= (500 * 4 * (unitc2 + 1)):
+                        if points >= 2000 * (unitc2 + 1)):
                             per_click_result += 5
-                            points -= (500 * 4 * (unitc2 + 1))
+                            points -= 2000 * (unitc2 + 1))
                             unitc2 += 1
                         else:
                             not_enough_points = 1
                     if option == "c3":
-                        if points >= 2500 * 5 * (unitc3 + 1):
+                        if points >= 10000 * (unitc3 + 1):
                             per_click_result += 20
-                            points -= 2500 * 5 * (unitc3 + 1)
+                            points -= 10000 * (unitc3 + 1)
                             unitc3 += 1
                         else:
                             not_enough_points = 1
                     if option == "c4":
-                        if points >= (10000 * 7 * (unitc4 + 1)):
+                        if points >= 70000 * (unitc4 + 1):
                             per_click_result += 100
-                            points -= (10000 * 7 * (unitc4 + 1))
+                            points -= 70000 * (unitc4 + 1)
                             unitc4 += 1
                         else:
                             not_enough_points = 1
                     if option == "c5":
-                        if points >= round(100000 * pow(2.2, (unitc5 + 1))):
+                        if points >= 100000 * pow(2.2, (unitc5 + 1)):
                             per_click_result *= 2
-                            points -= round(100000 * pow(2.2, (unitc5 + 1)))
+                            points -= 100000 * pow(2.2, (unitc5 + 1))
                             unitc5 += 1
                         else:
                             not_enough_points = 1
