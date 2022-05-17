@@ -1,3 +1,5 @@
+# current version: 2.1 (gambling update)
+# changes: save states have been added.
 # current version: 2.0 (gambling update)
 # changes: new minigame! sacrifice part of your points in hope for profit!
 import time
@@ -7,37 +9,40 @@ import random
 risk = 0
 loss = 0
 # upgrade amounts-----------------------------------------------
-unit1 = 0
-unit2 = 0
-unit3 = 0
-unit4 = 0
-unit5 = 0
-unit6 = 0
-unit7 = 0
-unit8 = 0
-unit9 = 0
-unit10 = 0
-unitc1 = 0
-unitc2 = 0
-unitc3 = 0
-unitc4 = 0
-unitc5 = 0
+with open('save.txt') as file:
+    savestate = file.readlines()
+    unit1 = int(savestate[13])
+    unit2 = int(savestate[14])
+    unit3 = int(savestate[15])
+    unit4 = int(savestate[16])
+    unit5 = int(savestate[17])
+    unit6 = int(savestate[18])
+    unit7 = int(savestate[19])
+    unit8 = int(savestate[20])
+    unit9 = int(savestate[21])
+    unit10 = int(savestate[22])
+    unitc1 = int(savestate[23])
+    unitc2 = int(savestate[24])
+    unitc3 = int(savestate[25])
+    unitc4 = int(savestate[26])
+    unitc5 = int(savestate[27])
 # amount given per click and per tick---------------------------
-per_tick_result = 0
-per_click_result = 1
+    per_tick_result = int(savestate[10])
+    per_click_result = int(savestate[11])
 # stats---------------------------------------------------------
-clicks = 0
-ticks = 0
-points = 0
+    points = int(savestate[1])
+    ticks = int(savestate[2])
+    clicks = int(savestate[3])
 # yes/no variables----------------------------------------------
-not_enough_points = 0
+    not_enough_points = 0
 # achievements--------------------------------------------------
-ac = 0  # up to 5
-at = 0  # up to 6
-appt = 0  # up to 8
-appc = 0  # up to 8
+    ac = int(savestate[5])  # up to 5
+    at = int(savestate[6])  # up to 6
+    appt = int(savestate[7])  # up to 8
+    appc = int(savestate[8])  # up to 8
 while 0 == 0:  # action menu -------------------------------------------------------------------------------------------
     points += (per_tick_result * (1 + (appt / 10)))
+    print(unit1)
     # achievement check ----------------------------------------
     if ac == 0 and clicks > 100:
         ac = 1
@@ -104,10 +109,46 @@ while 0 == 0:  # action menu ---------------------------------------------------
         points += per_click_result * (1 + (ac / 10) + (appc / 20))
         clicks += 1
     if option == "q":  # closes the game
+        with open('save.txt', 'r') as file:
+            savestate = file.readlines()
+            savestate[1] = str(round(points))
+            savestate[3] = str(ticks)
+            savestate[5] = str(clicks)
+            savestate[7] = "achievements:"
+            savestate[9] = str(ac)
+            savestate[11] = str(at)
+            savestate[13] = str(appc)
+            savestate[15] = str(appt)
+            savestate[17] = "given:"
+            savestate[19] = str(per_tick_result)
+            savestate[21] = str(per_click_result)
+            savestate[23] = "upgrades"
+            savestate[25] = str(unit1)
+            savestate[27] = str(unit2)
+            savestate[29] = str(unit3)
+            savestate[31] = str(unit4)
+            savestate[33] = str(unit5)
+            savestate[35] = str(unit6)
+            savestate[37] = str(unit7)
+            savestate[39] = str(unit8)
+            savestate[41] = str(unit9)
+            savestate[43] = str(unit10)
+            savestate[45] = str(unitc1)
+            savestate[47] = str(unitc2)
+            savestate[49] = str(unitc3)
+            savestate[51] = str(unitc4)
+            savestate[53] = str(unitc5)
+            savestate[54] = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+            x = 2
+            while x < 52:
+                savestate[x] = "\n"
+                x += 2
+        with open('save.txt', 'w') as file:
+            file.writelines(savestate)
         quit("game closed by q key.")
     if option == "s":  # opens the shop
         while not option == "q":
-            print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+            print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
             option = input("a to show autoclickers, c to show click upgrades, q to go back.\n")
 # auto types -----------------------------------------------------------------------------------------------------------
             if option == "a":
@@ -147,72 +188,72 @@ while 0 == 0:  # action menu ---------------------------------------------------
                     if not_enough_points == 1:
                         print("not enough points!")
                     print("points:", points)
-                    option = input("enter type number after a t (t2) to buy an autoclicker.\ntype the upgrade number after a c for a click upgrade (c2).\ntype q to go back.\n")
+                    option = input("enter type number to buy an autoclicker (1). type q to go back.\n")
                     not_enough_points = 0
-                    if option == "t1":
+                    if option == "1":
                         if points >= round((10 * 1.3 * unit1)) + 10:
                             per_tick_result += 1
                             points -= round((10 * 1.3 * unit1)) + 10
                             unit1 += 1
                         else:
                             not_enough_points = 1
-                    if option == "t2":
+                    if option == "2":
                         if points >= (50 * 2 * (unit2 + 1)):
                             per_tick_result += 5
                             points -= (50 * 2 * (unit2 + 1))
                             unit2 += 1
                         else:
                             not_enough_points = 1
-                    if option == "t3":
+                    if option == "3":
                         if points >= round(1000 * 2.4 * (unit3 + 1)):
                             per_tick_result += 20
                             points -= round(1000 * 2.4 * (unit3 + 1))
                             unit3 += 1
                         else:
                             not_enough_points = 1
-                    if option == "t4":
+                    if option == "4":
                         if points >= (25000 * 4 * (unit4 + 1)):
                             per_tick_result += 100
                             points -= (25000 * 4 * (unit4 + 1))
                             unit4 += 1
                         else:
                             not_enough_points = 1
-                    if option == "t5":
+                    if option == "5":
                         if points >= round(500000 * 6.5 * (unit5 + 1)):
                             per_tick_result += 300
                             points -= (500000 * 6.5 * (unit5 + 1))
                             unit5 += 1
                         else:
                             not_enough_points = 1
-                    if option == "t6":
+                    if option == "6":
                         if points >= (10000000 * 8 * (unit6 + 1)):
                             per_tick_result += 1000
                             points -= (10000000 * 8 * (unit6 + 1))
                             unit6 += 1
                         else:
                             not_enough_points = 1
-                    if option == "t7":
+                    if option == "7":
                         if points >= (600000000 * 14 * (unit7 + 1)):
                             per_tick_result += 10000
                             points -= (600000000 * 14 * (unit7 + 1))
                             unit7 += 1
                         else:
                             not_enough_points = 1
-                    if option == "t8":
+                    if option == "8":
                         if points >= (100000000000 * 16 * (unit8 + 1)):
                             per_tick_result += 200000
                             points -= (100000000000 * 16 * (unit8 + 1))
                             unit8 += 1
                         else:
                             not_enough_points = 1
-                    if option == "t9":
+                    if option == "9":
                         if points >= (100000000000000 * 25 * (unit9 + 1)):
                             per_tick_result += 4000000
                             points -= (100000000000000 * 25 * (unit9 + 1))
                             unit9 += 1
                         else:
                             not_enough_points = 1
-                    if option == "t10":
+                    if option == "10":
                         if points >= (10000000000000000000 * 32 * (unit10 + 1)):
                             per_tick_result += 160000000
                             points -= (10000000000000000000 * 32 * (unit10 + 1))
@@ -242,37 +283,37 @@ while 0 == 0:  # action menu ---------------------------------------------------
                     if not_enough_points == 1:
                         print("not enough points!")
                     print("points:", points)
-                    option = input("enter type number after a t (t2) to buy an autoclicker.\ntype the upgrade number after a c for a click upgrade (c2).\ntype q to go back.\n")
+                    option = input("type the upgrade number click upgrade (2).\ntype q to go back.\n")
                     not_enough_points = 0
-                    if option == "c1":
+                    if option == "1":
                         if points >= 100 * 3 * (unitc1 + 1):
                             per_click_result += 1
                             points -= 100 * 3 * (unitc1 + 1)
                             unitc1 += 1
                         else:
                             not_enough_points = 1
-                    if option == "c2":
+                    if option == "2":
                         if points >= (500 * 4 * (unitc2 + 1)):
                             per_click_result += 5
                             points -= (500 * 4 * (unitc2 + 1))
                             unitc2 += 1
                         else:
                             not_enough_points = 1
-                    if option == "c3":
+                    if option == "3":
                         if points >= 2500 * 5 * (unitc3 + 1):
                             per_click_result += 20
                             points -= 2500 * 5 * (unitc3 + 1)
                             unitc3 += 1
                         else:
                             not_enough_points = 1
-                    if option == "c4":
+                    if option == "4":
                         if points >= (10000 * 7 * (unitc4 + 1)):
                             per_click_result += 100
                             points -= (10000 * 7 * (unitc4 + 1))
                             unitc4 += 1
                         else:
                             not_enough_points = 1
-                    if option == "c5":
+                    if option == "5":
                         if points >= round(100000 * pow(2.2, (unitc5 + 1))):
                             per_click_result *= 2
                             points -= round(100000 * pow(2.2, (unitc5 + 1)))
