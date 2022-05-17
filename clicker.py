@@ -311,6 +311,7 @@ while 0 == 0:  # action menu ---------------------------------------------------
                     points += round(points / (11 - risk))
                     print("success! gained", round(points / (11 - risk)), "points.")
                 else:
+                    points -= round(points / (11 - risk))
                     print("failure... lost", round(points / (11 - risk)), "points.")
             else:
                 print("this line of text is here to fill space")
