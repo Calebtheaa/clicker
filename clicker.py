@@ -5,6 +5,7 @@ import random
 # declares variables----------------------------------------------------------------------------------------------------
 # misc----------------------------------------------------------
 risk = 0
+loss = 0
 # upgrade amounts-----------------------------------------------
 unit1 = 0
 unit2 = 0
@@ -298,7 +299,12 @@ while 0 == 0:  # action menu ---------------------------------------------------
         while risk < 11:
             print(
                 "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
-            risk = int(input("enter risk to take, enter 11 to go back (up to 10: risk up, cost up, reward up, and chance down) (if you don't enter a number the game will crash!!)\n"))
+            if loss = 1
+                print("success! gained", round(points / (11 - risk)), "points.")
+            if loss = 2
+                print("failure... lost", round(points / (11 - risk)), "points.")
+            loss = 0
+            risk = int(input("enter risk to take, enter 11 to go back (up to 10: risk up, cost up, reward up, and chance down) (if you don't enter a number the game will crash!!)\n")
             if 11 > risk > 0:
                 chance = round(50 - risk * 4)
                 print("cost:", round(points / (11 - risk)))
@@ -309,10 +315,10 @@ while 0 == 0:  # action menu ---------------------------------------------------
                     print("this line of text is here to fill space")
                 elif chance > random.randint(1, 100):
                     points += round(points / (11 - risk))
-                    print("success! gained", round(points / (11 - risk)), "points.")
+                    loss = 1
                 else:
                     points -= round(points / (11 - risk))
-                    print("failure... lost", round(points / (11 - risk)), "points.")
+                    loss = 2
             else:
                 print("this line of text is here to fill space")
     risk = 0
