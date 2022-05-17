@@ -1,28 +1,61 @@
-stats
+stats:
 0
 0
 0
-achievements
+achievements:
 0
 0
 0
 0
-given
+given:
 0
 1
+upgrades:
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+ORDER
+
+stats:
+points
+ticks
+clicks
+achievements:
+total clicks
+total ticks
+total points per tick
+total points per click
+given:
+points per tick
+points per click
 upgrades
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
+tier 1 autoclicker
+tier 2 autoclicker
+tier 3 autoclicker
+tier 4 autoclicker
+tier 5 autoclicker
+tier 6 autoclicker
+tier 7 autoclicker
+tier 8 autoclicker
+tier 9 autoclicker
+tier 10 autoclicker
+level 1 click upgrade
+level 2 click upgrade
+level 3 click upgrade
+level 4 click upgrade
+level 5 click upgrade
+
+NO TOUCH >:((((((((((((
