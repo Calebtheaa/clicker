@@ -301,8 +301,10 @@ while 0 == 0:  # action menu ---------------------------------------------------
                 "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
             if loss == 1:
                 print("success! gained", round(points / (11 - risk)), "points.")
+                points += round(points / (11 - risk))
             if loss == 2:
                 print("failure... lost", round(points / (11 - risk)), "points.")
+                points -= round(points / (11 - risk))
             loss = 0
             risk = int(input("enter risk to take, enter 11 to go back (up to 10: risk up, cost up, reward up, and chance down) (if you don't enter a number the game will crash!!)\n"))
             if 11 > risk > 0:
@@ -314,12 +316,9 @@ while 0 == 0:  # action menu ---------------------------------------------------
                 if option == "b":
                     print("this line of text is here to fill space")
                 elif chance > random.randint(1, 100):
-                    points += round(points / (11 - risk))
                     loss = 1
                 else:
-                    points -= round(points / (11 - risk))
                     loss = 2
             else:
                 print("this line of text is here to fill space")
     risk = 0
-    
