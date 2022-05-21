@@ -2,7 +2,6 @@
 # changes: directory moment
 import time
 import random
-import os
 # declares variables----------------------------------------------------------------------------------------------------
 # misc----------------------------------------------------------
 risk = 0
@@ -362,4 +361,3 @@ while 0 == 0:  # action menu ---------------------------------------------------
             else:
                 print("this line of text is here to fill space")
     risk = 0
-
