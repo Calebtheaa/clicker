@@ -1,15 +1,14 @@
-# current version: 2.1 (gambling update)
-# changes: save states have been added.
-# current version: 2.0 (gambling update)
-# changes: new minigame! sacrifice part of your points in hope for profit!
+# current version: 2.1.1 (gambling update)
+# changes: directory moment
 import time
 import random
+import os
 # declares variables----------------------------------------------------------------------------------------------------
 # misc----------------------------------------------------------
 risk = 0
 loss = 0
 # upgrade amounts-----------------------------------------------
-with open('save.txt') as file:
+with open(r'C:\Users\birtw\Downloads\clicker-main\clicker-main\save.txt') as file:
     savestate = file.readlines()
     unit1 = int(savestate[13])
     unit2 = int(savestate[14])
@@ -109,7 +108,7 @@ while 0 == 0:  # action menu ---------------------------------------------------
         points += per_click_result * (1 + (ac / 10) + (appc / 20))
         clicks += 1
     if option == "q":  # closes the game
-        with open('save.txt', 'r') as file:
+        with open(r'C:\Users\birtw\Downloads\clicker-main\clicker-main\save.txt', 'r') as file:
             savestate = file.readlines()
             savestate[1] = str(round(points))
             savestate[3] = str(ticks)
@@ -143,7 +142,7 @@ while 0 == 0:  # action menu ---------------------------------------------------
             while x < 52:
                 savestate[x] = "\n"
                 x += 2
-        with open('save.txt', 'w') as file:
+        with open(r'C:\Users\birtw\Downloads\clicker-main\clicker-main\save.txt', 'w') as file:
             file.writelines(savestate)
         quit("game closed by q key.")
     if option == "s":  # opens the shop
@@ -363,3 +362,4 @@ while 0 == 0:  # action menu ---------------------------------------------------
             else:
                 print("this line of text is here to fill space")
     risk = 0
+
