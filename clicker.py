@@ -1,7 +1,8 @@
-# current version: 2.1.1 (gambling update)
-# changes: directory moment
+# current version: 2.1.2 (gambling update)
+# changes: typing q by accident no longer crashes the game!!
 import time
 import random
+
 # declares variables----------------------------------------------------------------------------------------------------
 # misc----------------------------------------------------------
 risk = 0
@@ -24,16 +25,16 @@ with open(r'C:\Users\birtw\Downloads\clicker-main\clicker-main\save.txt') as fil
     unitc3 = int(savestate[25])
     unitc4 = int(savestate[26])
     unitc5 = int(savestate[27])
-# amount given per click and per tick---------------------------
+    # amount given per click and per tick---------------------------
     per_tick_result = int(savestate[10])
     per_click_result = int(savestate[11])
-# stats---------------------------------------------------------
+    # stats---------------------------------------------------------
     points = int(savestate[1])
     ticks = int(savestate[2])
     clicks = int(savestate[3])
-# yes/no variables----------------------------------------------
+    # yes/no variables----------------------------------------------
     not_enough_points = 0
-# achievements--------------------------------------------------
+    # achievements--------------------------------------------------
     ac = int(savestate[5])  # up to 5
     at = int(savestate[6])  # up to 6
     appt = int(savestate[7])  # up to 8
@@ -96,12 +97,14 @@ while 0 == 0:  # action menu ---------------------------------------------------
         appc = 7
     if appc == 7 and per_click_result > 10000:
         appc = 8
-    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")  # separation
+    print(
+        "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")  # separation
     print("Points per tick =", per_tick_result)
     print("Points per click =", per_click_result)
     print("Points =", round(points))
-    option = input("Enter input:\nc: click\ns: shop\nq: leave\na: achievements\ng: rng machine (100,000 points)\nanything else: does nothing\n")
-    time.sleep(0.1-(at / 100))
+    option = input(
+        "Enter input:\nc: click\ns: shop\nq: leave\na: achievements\ng: rng machine (100,000 points)\nanything else: does nothing\n")
+    time.sleep(0.1 - (at / 100))
     ticks += 1
     if option == "c":  # adds the value per click to point amount
         points += per_click_result * (1 + (ac / 10) + (appc / 20))
@@ -146,12 +149,14 @@ while 0 == 0:  # action menu ---------------------------------------------------
         quit("game closed by q key.")
     if option == "s":  # opens the shop
         while not option == "q":
-            print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+            print(
+                "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
             option = input("a to show autoclickers, c to show click upgrades, q to go back.\n")
-# auto types -----------------------------------------------------------------------------------------------------------
+            # auto types -----------------------------------------------------------------------------------------------------------
             if option == "a":
                 while not option == "q":
-                    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")  # separation
+                    print(
+                        "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")  # separation
                     print("\nAUTOCLICKERS")
                     print("\ntype 1 (1 point per clicker):")
                     print("amount:", unit1)
@@ -258,10 +263,11 @@ while 0 == 0:  # action menu ---------------------------------------------------
                             unit10 += 1
                         else:
                             not_enough_points = 1
-# click types ----------------------------------------------------------------------------------------------------------
+            # click types ----------------------------------------------------------------------------------------------------------
             if option == "c":
                 while not option == "q":
-                    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+                    print(
+                        "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
                     print("\nCLICK UPGRADES")
                     print("\nlevel 1 (1 point per upgrade):")
                     print("amount:", unitc1)
@@ -320,7 +326,8 @@ while 0 == 0:  # action menu ---------------------------------------------------
                             not_enough_points = 1
     if option == "a":  # shows achievements
         while not option == "q":
-            print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")  # separation
+            print(
+                "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")  # separation
             print("achievements + stats\n\n")
             print("clicks")
             print("amount:", clicks)
@@ -345,19 +352,22 @@ while 0 == 0:  # action menu ---------------------------------------------------
                 print("failure... lost", round(points / (11 - risk)), "points.")
                 points -= round(points / (11 - risk))
             loss = 0
-            risk = int(input("enter risk to take, enter 11 to go back (up to 10: risk up, cost up, reward up, and chance down) (if you don't enter a number the game will crash!!)\n"))
-            if 11 > risk > 0:
-                chance = round(50 - risk * 4)
-                print("cost:", round(points / (11 - risk)))
-                print("reward:", round((points / (11 - risk)) * 2))
-                print("chance:", round(50 - risk * 4), "%")
-                option = input("are you sure you want to continue? enter b to go back, enter anything else to continue")
-                if option == "b":
-                    print("this line of text is here to fill space")
-                elif chance > random.randint(1, 100):
-                    loss = 1
+            risk = 0
+            try:
+                risk = int(input("enter risk to take, enter 11 to go back (up to 10: risk up, cost up, reward up, and chance down)\n"))
+                if 11 > risk > 0:
+                    chance = round(50 - risk * 4)
+                    print("cost:", round(points / (11 - risk)))
+                    print("reward:", round((points / (11 - risk)) * 2))
+                    print("chance:", round(50 - risk * 4), "%")
+                    option = input("are you sure you want to continue? enter b to go back, enter anything else to continue")
+                    if option == "b":
+                        print("this line of text is here to fill space")
+                    elif chance > random.randint(1, 100):
+                        loss = 1
+                    else:
+                        loss = 2
                 else:
-                    loss = 2
-            else:
-                print("this line of text is here to fill space")
-    risk = 0
+                    print("this line of text is here to fill space")
+            except:
+                ()
