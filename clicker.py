@@ -40,7 +40,7 @@ with open(r'C:\Users\birtw\Downloads\clicker-main\clicker-main\save.txt') as fil
     appt = int(savestate[7])  # up to 8
     appc = int(savestate[8])  # up to 8
 while 0 == 0:  # action menu -------------------------------------------------------------------------------------------
-    points += (decimal.Decimal(per_tick_result) * (1 + (appt / 10)))
+    points += (decimal.Decimal(per_tick_result) * int((1 + (appt / 10))))
     # achievement check ----------------------------------------
     if ac == 0 and clicks > 100:
         ac = 1
@@ -106,7 +106,7 @@ while 0 == 0:  # action menu ---------------------------------------------------
     time.sleep(0.1 - (at / 100))
     ticks += 1
     if option == "c":  # adds the value per click to point amount
-        points += (decimal.Decimal(per_click_result) * (1 + (ac / 10) + (appc / 20)))
+        points += (decimal.Decimal(per_click_result) * int((1 + (ac / 10) + (appc / 20))))
         clicks += 1
     if option == "q":  # closes the game
         with open(r'C:\Users\birtw\Downloads\clicker-main\clicker-main\save.txt', 'r') as file:
