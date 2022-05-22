@@ -1,8 +1,8 @@
-# current version: 2.1.2 (gambling update)
-# changes: typing q by accident no longer crashes the game!!
+# current version: 2.1.3 (gambling update)
+# changes: replaced point, ppt, and ppc value with decimal
 import time
 import random
-
+import decimal
 # declares variables----------------------------------------------------------------------------------------------------
 # misc----------------------------------------------------------
 risk = 0
@@ -40,8 +40,7 @@ with open(r'C:\Users\birtw\Downloads\clicker-main\clicker-main\save.txt') as fil
     appt = int(savestate[7])  # up to 8
     appc = int(savestate[8])  # up to 8
 while 0 == 0:  # action menu -------------------------------------------------------------------------------------------
-    points += (per_tick_result * (1 + (appt / 10)))
-    print(unit1)
+    points += (decimal.Decimal(per_tick_result) * (1 + (appt / 10)))
     # achievement check ----------------------------------------
     if ac == 0 and clicks > 100:
         ac = 1
@@ -107,7 +106,7 @@ while 0 == 0:  # action menu ---------------------------------------------------
     time.sleep(0.1 - (at / 100))
     ticks += 1
     if option == "c":  # adds the value per click to point amount
-        points += per_click_result * (1 + (ac / 10) + (appc / 20))
+        points += (decimal.Decimal(per_click_result) * (1 + (ac / 10) + (appc / 20)))
         clicks += 1
     if option == "q":  # closes the game
         with open(r'C:\Users\birtw\Downloads\clicker-main\clicker-main\save.txt', 'r') as file:
@@ -341,7 +340,7 @@ while 0 == 0:  # action menu ---------------------------------------------------
             print("progress:", appc, "/ 8", "(+", appc * 5, "% to points per click)\n\n")
             print("q to close\n")
             option = input()
-    if option == "g" and points > 100000:  # the rng machine
+    if option == "g" and decimal.Decimal(points) > 100000:  # the rng machine
         while risk < 11:
             print(
                 "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
